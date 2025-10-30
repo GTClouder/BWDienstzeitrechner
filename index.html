@@ -191,6 +191,7 @@
                         'sc-milestones.jpg',
                         'sc-profile.jpg',
                         'sc-design.jpg',
+                        'sc-sharing.jpg',
                         'sc-pol-bildung.jpg'
                     ];
 
@@ -294,7 +295,7 @@ Fasse dich kurz (1-3 Sätze). Nutze Bundeswehr-Jargon für maximalen Spott.`;
             // User-Query wurde angepasst, um eine ANTWORT zu erbitten
             const userQuery = `Ein Kamerad meldet stolz (oder mitleiderregend), dass er noch ${days} Dienstzeit vor sich hat. Generiere eine ${style} ANTWORT darauf.`;
             
-            const apiKey = ""; // API-Schlüssel wird zur Laufzeit bereitgestellt
+            const apiKey = "AIzaSyBPqDqdmeH96ZKChff1_0H9GZwE9VSCahI"; // <-- Fügen Sie hier Ihren API-Schlüssel ein
             // KORRIGIERTER API-Link
             const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-09-2025:generateContent?key=${apiKey}`;
 
@@ -359,7 +360,7 @@ Antworte IMMER nur mit einem JSON-Objekt im folgenden Format:
 Gib das Jahr des Ereignisses im Datum an.`;
             const userQuery = `Gib mir einen politischen oder historischen Fakt für heute, den ${today}.`;
 
-            const apiKey = ""; // API-Schlüssel wird zur Laufzeit bereitgestellt
+            const apiKey = "AIzaSyAi-851cORQI1_7mPzEoph4pebqoomNQg0"; // <-- Fügen Sie hier Ihren API-Schlüssel ein
             const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-09-2025:generateContent?key=${apiKey}`;
 
             const payload = {
