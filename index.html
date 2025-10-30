@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BW Dienstzeitrechner - Landing Page</title>
+    <!-- Import Tailwind CSS --><script src="https://cdn.tailwindcss.com"></script>
+    <!-- Import Inter Font --><link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* Define custom colors based on the app's theme */
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        .bg-bw-dark { background-color: #1a1a1a; }
+        .bg-bw-olive { background-color: #5d6a4a; } /* Darker olive from logo */
+        .text-bw-beige { color: #e8e6d9; } /* Beige from logo */
+        .text-bw-orange { color: #f97316; } /* Orange from screenshots */
+        .border-bw-orange { border-color: #f97316; }
+        .hover-bg-bw-orange:hover { background-color: #fb923c; }
+        /* Kleiner Lade-Spinner */
+        .loader {
+            border: 4px solid #f3f3f3; /* Light grey */
+            border-top: 4px solid #f97316; /* Orange */
+            border-radius: 50%;
+            width: 24px;
+            height: 24px;
+            animation: spin 1s linear infinite;
+        }
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+    </style>
+</head>
+<body class="bg-bw-dark text-bw-beige">
+
+    <!-- Header --><header class="bg-bw-beige shadow-md sticky top-0 z-50">
+        <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <div class="flex items-center space-x-3">
+                <!-- BITTE GEHOSTETEN LINK ZUM OLIVGRÜNEN LOGO HIER EINFÜGEN --><img src="https://i.imgur.com/TreFsVm.png" alt="[Bild des BW Dienstzeitrechner Logos]" 
+                     class="h-10 w-auto object-cover"
+                     onerror="this.src='https://placehold.co/150x40/5d6a4a/e8e6d9?text=Logo+URL+einf%C3%BCgen'; this.onerror=null;">
+                <span class="text-xl font-bold text-white"></span>
+            </div>
+            
+        </nav>
+    </header>
+
+    <main>
+        <!-- Hero Section --><section class="relative h-[35vh] min-h-[400px] flex items-center justify-center text-center text-white overflow-hidden">
+            <!-- Gehostetes Banner-Bild --><img src="https://i.imgur.com/cJvmGGC.jpeg" 
+                 alt="[Bild eines Banners mit Maßband und dem App-Namen]" 
+                 class="absolute inset-0 w-full h-full object-cover z-0"
+                 onerror="this.src='https://placehold.co/1920x1080/5d6a4a/e8e6d9?text=BW+Dienstzeitrechner'; this.onerror=null;">
+            <!-- Overlay --><div class="absolute inset-0 bg-black opacity-80 z-10"></div>
+            
+            <div class="relative z-10 p-6">
+                <h1 class="text-4xl md:text-6xl font-bold mb-4" style="text-shadow: 0 2px 4px rgba(0,0,0,0.7);">Nie wieder das Dienstzeitende verpassen.</h1>
+                <p class="text-lg md:text-2xl text-gray-200 mb-8" style="text-shadow: 0 2px 4px rgba(0,0,0,0.7);">Der Rechner für den pflichtbewussten Soldaten.</p>
+                <div class="flex justify-center space-x-6">
+                    
+                </div>
+            </div>
+        </section>
+
+        <!-- Introduction Text Section --><section class="container mx-auto px-6 py-16 md:py-24 text-center">
+            <h2 class="text-3xl md:text-4xl font-bold text-bw-orange mb-6">Für alle, die ihr Dienstzeitende nicht verpassen wollen!</h2>
+            <div class="max-w-3xl mx-auto text-lg text-gray-300 space-y-4 leading-relaxed">
+                <p>
+                    Jeder kennt dieses Gefühl: Die Diensttage vergehen wie im Flug, ein Tag jagt den nächsten. Und plötzlich ist es so weit: Man hat das Ende seiner Dienstzeit erreicht, aber die Kameraden waren nicht ausreichend über die verbleibenden Tage informiert.
+                </p>
+                <p class="font-semibold">
+                    Damit ist jetzt Schluss!
+                </p>
+                <p>
+                    Mit dem BW Dienstzeitrechner verpasst der pflichtbewusste Soldat nie wieder einen wichtigen Meilenstein. Und nie wieder wird man das lang ersehnte Ende seiner Dienstzeit verpassen.
+                </p>
+            </div>
+        </section>
+        
+        <!-- Feature: Sharing --><section class="bg-gray-800 py-16 md:py-24">
+            <div class="container mx-auto px-6">
+                <div class="flex flex-col md:flex-row items-center justify-center gap-8 md:gap-12">
+                    <!-- Text Content --><div class="md:w-1/2 text-center md:text-left">
+                        <h3 class="text-3xl md:text-4xl font-bold text-bw-orange mb-4">Echte Kameradschaft</h3>
+                        <p class="text-xl text-gray-300 leading-relaxed">
+                            Das Wichtigste dabei: Ich kann meinen aktuellen Status jederzeit per Messenger mit meinen Kameraden teilen und sie so auf dem Laufenden halten. Wenn das keine Kameradschaft ist!
+                        </p>
+                    </div>
+                    <!-- Gehostetes Screenshot-Bild --><div class="md:w-1/3 flex justify-center">
+                        <img src="https://i.imgur.com/LAfNU2z.jpg" 
+                             alt="[Screenshot der App, der die Teilen-Buttons anzeigt]" 
+                             class="rounded-2xl shadow-lg max-w-xs w-full"
+                             onerror="this.src='https://placehold.co/300x600/1a1a1a/e8e6d9?text=Teilen-Funktion'; this.onerror=null;">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- NEW GEMINI FEATURE: Message Generator --><section class="bg-bw-dark py-16 md:py-24">
+            <div class="container mx-auto px-6">
+                <div class="flex flex-col-reverse md:flex-row items-center justify-center gap-8 md:gap-12">
+                    <!-- Demo UI --><div class="md:w/1-2 lg:w-1/3 flex justify-center">
+                        <div class="bg-gray-800 p-6 rounded-lg shadow-lg w-full max-w-md border border-gray-700">
+                            <h4 class="text-xl font-semibold text-white mb-4">Tagemeldungs-Antwort-Generator</h4>
+                            
+                            <label for="messageDays" class="block text-sm font-medium text-gray-300">Tage des Kameraden</label>
+                            <input type="text" id="messageDays" value="" placeholder="z.B. 1.249 Tage" class="w-full bg-gray-700 text-gray-200 rounded-md p-2 mt-1 mb-3 border border-gray-600 focus:border-bw-orange focus:ring-bw-orange">
+
+                            <label for="messageStyle" class="block text-sm font-medium text-gray-300">Stil auswählen</label>
+                            <select id="messageStyle" class="w-full bg-gray-700 text-white rounded-md p-2 mt-1 mb-4 border border-gray-600 focus:border-bw-orange focus:ring-bw-orange">
+                                <option value="kameradschaftlich">Kameradschaftlich</option>
+                                <option value="motivierend">Motivierend</option>
+                                <option value="lustig">Lustig</option>
+                                <option value="sarkastisch">Sarkastisch</option>
+                                <option value="ängstlich">Ängstlich</option>
+                                <option value="verloren">Verloren</option>
+                                <option value="kurz und knapp">Kurz und knapp</option>
+                                <option value="diszipliniert">Diszipliniert</option>
+                                <option value="gelangweilt">Gelangweilt</option>
+                                <option value="unmotiviert">Unmotiviert</option>
+                            </select>
+
+                            <button id="generateButton" class="w-full px-6 py-3 text-lg font-semibold text-white bg-bw-orange rounded-lg hover-bg-bw-orange transition-colors shadow-lg flex items-center justify-center">
+                                ✨ Antwort zusammendengeln
+                            </button>
+                            
+                            <div id="loader-message" class="hidden justify-center mt-4"><div class="loader"></div></div>
+
+                            <textarea id="geminiOutput" rows="4" class="w-full bg-gray-900 text-gray-300 rounded-md p-2 mt-4 border border-gray-700" placeholder="Deine Antwort erscheint hier..."></textarea>
+                        </div>
+                    </div>
+                    <!-- Text Content --><div class="md:w-1/2 text-center md:text-left">
+                        <h3 class="text-3xl md:text-4xl font-bold text-bw-orange mb-4">DEMNÄCHST: Der Tagemeldungs-Antwort-Generator ✨</h3>
+                        <p class="text-xl text-gray-300 leading-relaxed mb-4">
+                            Keine Lust, dir die immer gleiche "Tagemeldung" der Kameraden anzuhören? Nerven dich die Kameraden, weil ihre Tage gefühlte Welten kürzer sind? Du einfach nicht aufholen kannst?
+                        </p>
+                        <p class="text-lg text-gray-400 leading-relaxed">
+                            Revanchiere dich mit dem Tagemeldungs-Antwort-Generator. Wähle einen Stil (z.B. "ängstlich" oder "verloren"), lass die App eine brutal ehrliche Meldung basierend auf der Dienstzeit deines Kameraden verfassen und genieße die Schadenfreude. Perfekt zum Teilen!
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- NEW GEMINI FEATURE: Political Education --><section class="bg-gray-800 py-16 md:py-24">
+            <div class="container mx-auto px-6">
+                <div class="flex flex-col md:flex-row items-center justify-center gap-8 md:gap-12">
+                    <!-- Text Content --><div class="md:w-1/2 text-center md:text-left">
+                        <h3 class="text-3xl md:text-4xl font-bold text-bw-orange mb-4">Tagesaktuell & Relevant ✨</h3>
+                        <p class="text-xl text-gray-300 leading-relaxed mb-4">
+                            Die "Heutige Politische Bildung" wird jetzt durch die App unterstützt.
+                        </p>
+                        <p class="text-lg text-gray-400 leading-relaxed">
+                            Schluss mit langweiligen Kalendersprüchen. Der BWDienstzeitrechner gräbt jeden Tag einen knallharten historischen Fakt für dich aus. Perfekt, um dir die Monotonie des Dienstalltags mit einer Prise Weltuntergangsstimmung oder historischer Absurdität zu 'versüßen'. Wissen, das dir beweist: Verglichen mit der Geschichte ist dein Tag heute fast schon ein Urlaub.
+                        </p>
+                    </div>
+                    <!-- Demo UI --><div class="md:w-1/2 lg:w-1/3 flex justify-center">
+                        <div class="bg-bw-dark p-6 rounded-lg shadow-lg w-full max-w-md border border-gray-700">
+                            <h4 class="text-lg font-semibold text-gray-400 uppercase mb-3">Heutige Politische Bildung</h4>
+                            
+                            <div id="factCard" class="bg-gray-800 p-4 rounded-lg min-h-[150px]">
+                                <div id="loader-fact" class="hidden justify-center items-center h-full"><div class="loader"></div></div>
+                                <div id="factContent" class="hidden">
+                                    <h5 id="factDate" class="text-2xl font-bold text-bw-orange mb-2"></h5>
+                                    <p id="factText" class="text-gray-300"></p>
+                                </div>
+                                <div id="factStart" class="flex justify-center items-center h-full">
+                                    <p class="text-gray-500">Klicke, um den Fakt des Tages zu laden.</p>
+                                </div>
+                            </div>
+                            
+                            <button id="factButton" class="w-full mt-4 px-4 py-2 text-sm font-medium text-white bg-bw-orange rounded-lg hover-bg-bw-orange transition-colors">
+                                ✨ Heutigen Fakt laden
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Screenshot Gallery --><section class="container mx-auto px-6 py-16 md:py-24">
+            <h2 class="text-3xl md:text-4xl font-bold text-center text-bw-orange mb-12">Ein Blick in die App</h2>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 md:gap-8">
+                <!-- Gehostete Screenshot-Galerie --><script>
+                    const screenshots = [
+                        'https://i.imgur.com/6ZGIABi.jpeg', // Countdown
+                        'https://i.imgur.com/OILat3w.jpeg', // Progress
+                        'https://i.imgur.com/oELU617.jpg', // Milestones
+                        'https://i.imgur.com/tCyQimU.jpg', // Profile
+                        'https://i.imgur.com/FEnM1NM.jpg', // Design
+                        'https://i.imgur.com/LAfNU2z.jpg', // Analysis/Share
+                        'https://i.imgur.com/yqmMK1a.jpg'  // Pol. Bildung
+                    ];
+
+                    const gallery = document.currentScript.parentElement;
+                    screenshots.forEach(src => {
+                        const imgWrapper = document.createElement('div');
+                        imgWrapper.className = 'flex justify-center';
+                        
+                        const img = document.createElement('img');
+                        img.src = src; 
+                        img.alt = `[Screenshot der BW Dienstzeitrechner App]`;
+                        img.className = 'w-full max-w-xs rounded-2xl shadow-lg border-4 border-gray-700 hover:border-bw-orange transition-all transform hover:scale-105';
+                        img.onerror = function() {
+                            this.src=`https://placehold.co/300x600/1a1a1a/e8e6d9?text=Screenshot`;
+                            this.onerror=null;
+                        };
+                        
+                        imgWrapper.appendChild(img);
+                        gallery.appendChild(imgWrapper);
+                    });
+                </script>
+            </div>
+        </section>
+
+        <!-- Final CTA --><section class="bg-bw-olive text-bw-beige py-16 md:py-24">
+            <div class="container mx-auto px-6 text-center">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">Viel Spaß!</h2>
+                <p class="text-xl mb-8 max-w-2xl mx-auto">Laden Sie den BW Dienstzeitrechner noch heute herunter und behalten Sie jeden Tag im Blick.</p>
+                <div class="flex flex-col sm:flex-row justify-center items-center gap-4">
+                     <!-- Placeholder Download Buttons --><a href="#" class="flex items-center justify-center bg-gray-900 text-white rounded-lg px-6 py-3 w-60 hover:bg-gray-700 transition-colors">
+                        <svg class="w-6 h-6 mr-3" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M17.41,6.58L16,8l-1.41-1.42L13.17,8,11.76,6.58,10.34,8,8.93,6.58,7.5,8,6.07,6.58,4.66,8l-1.6-1.6L2,7.46l1.41,1.42L2,10.29l1.41,1.42L2,13.12l1.41,1.42L2,16l1.06,1.06,1.6-1.6L6.07,17.42,7.5,16l1.43,1.42L10.34,16l1.42,1.42L13.17,16l1.41,1.42L16,16l1.41,1.42L18.83,16l1.6,1.6L21.5,16.54l-1.41-1.42L21.5,13.71l-1.41-1.42L21.5,10.88l-1.41-1.42L21.5,8Z M8,12a2,2,0,0,0-2,2,2,2,0,0,0,2,2,2,2,0,0,0,2-2A2,2,0,0,0,8,12Z m8,0a2,2,0,0,0-2,2,2,2,0,0,0,2,2,2,2,0,0,0,2-2A2,2,0,0,0,16,12Z"></path></svg>
+                        <div>
+                            <div class="text-xs">GET IT ON</div>
+                            <div class="text-lg font-semibold">Google Play</div>
+                        </div>
+                    </a>
+                    <a href="#" class="flex items-center justify-center bg-gray-900 text-white rounded-lg px-6 py-3 w-60 hover:bg-gray-700 transition-colors">
+                        <svg class="w-6 h-6 mr-3" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M18.6,11.53c-.12-2.82-2.43-5-5.26-5-1.12,0-2.17.34-3.07,1a5.1,5.1,0,0,0-4.2,5c0,2.83,2.3,5.13,5.13,5.13a4.12,4.12,0,0,0,3.13-1.28A4.58,4.58,0,0,0,18.6,11.53ZM12,15.17A2.67,2.67,0,1,1,14.67,12.5,2.67,2.67,0,0,1,12,15.17Z M17.3,4.18c-.8-.23-1.63-.35-2.48-.35-2.1,0-4.08.7-5.63,1.93-.24.19-.48.38-.7.58A8.3,8.3,0,0,0,4.7,9.88c-.14.28-.27.56-.39.85-.23.58-.42,1.19-.57,1.82s-.23,1.29-.23,1.95a8.39,8.39,0,0,0,.76,3.5,8.2,8.2,0,0,0,2.36,3.08,8.38,8.38,0,0,0,3.5,1.66c.26.06.52.1.78.14a7.3,7.3,0,0,0,2,.3,8.75,8.75,0,0,0,3.32-.61,8.3,8.3,0,0,0,2.94-2.12,8.5,8.5,0,0,0,1.93-3.33c.12-.29.23-.59.32-.89s.16-.6.22-.91c.06-.32.1-.64.13-1,0-.12,0-.23,0-.35A8,8,0,0,0,17.3,4.18Z"></path></svg>
+                        <div>
+                            <div class="text-xs">Download on the</div>
+                            <div class="text-lg font-semibold">App Store</div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer --><footer class="bg-black text-gray-400 py-8">
+        <div class="container mx-auto px-6 text-center">
+            <p class="text-sm">&copy; 2025 BW Dienstzeitrechner. Alle Rechte vorbehalten.</p>
+            <!-- Platzhalter für Impressum / Datenschutz Links --><div class="flex justify-center space-x-4 mt-4 text-xs">
+                <a href="#" class="hover:text-white">Impressum</a>
+                <a href="#" class="hover:text-white">Datenschutz</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Gemini API Logic --><script>
+        // Helper function for exponential backoff
+        const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
+
+        async function retryFetch(url, options, retries = 5, delay = 1000) {
+            for (let i = 0; i < retries; i++) {
+                try {
+                    const response = await fetch(url, options);
+                    if (response.ok) {
+                        return response.json();
+                    }
+                    console.warn(`Fetch attempt ${i + 1} failed with status: ${response.status}`);
+                } catch (error) {
+                    console.warn(`Fetch attempt ${i + 1} failed with error: ${error}`);
+                }
+                await sleep(delay * Math.pow(2, i)); // Exponential backoff
+            }
+            throw new Error('Failed to fetch from API after several retries.');
+        }
+
+        // --- Feature 1: Message Generator ---
+        const generateButton = document.getElementById('generateButton');
+        const messageOutput = document.getElementById('geminiOutput');
+        const messageLoader = document.getElementById('loader-message');
+
+        async function generateMessage() {
+            generateButton.disabled = true;
+            generateButton.innerHTML = 'Generiere...';
+            messageLoader.classList.remove('hidden');
+            messageLoader.classList.add('flex');
+            messageOutput.value = '';
+
+            const days = document.getElementById('messageDays').value;
+            const style = document.getElementById('messageStyle').value;
+
+            // System-Prompt wurde aktualisiert, um eine ANTWORT zu generieren
+            const systemPrompt = `Du bist ein Kamerad bei der Bundeswehr mit einem extrem trockenen, sarkastischen und schwarzen Humor. Deine Aufgabe ist es, eine schlagfertige ANTWORT auf die "Tagemeldung" eines anderen Kameraden zu generieren. Du willst dich über ihn lustig machen.
+Die Tonalität der ANTWORT hängt STRENG von der Anzahl der verbleibenden Tage ab, die der Kamerad gemeldet hat:
+1.  **WENIGER als 12 Tage (z.B. "10 Tage"):** Der Kamerad ist ein Angeber. Reagiere sarkastisch-missgünstig. Gratuliere ihm auf eine Art, die zeigt, dass du es ihm nicht gönnst. (z.B. "Na toll, musst du's jedem erzählen?")
+2.  **MEHR als 12 Tage (z.B. "50 Tage", "1.249 Tage"):** Das ist dein Haupt-Spottthema. Sei brutal sarkastisch, voller schwarzen Humors und mitleidlos. Je HÖHER die Zahl, desto schwärzer und beißender der Spott. Mache dich über die schiere Unendlichkeit der verbleibenden Zeit lustig. (z.B. "1.249 Tage? Zählst du schon die Sekunden? Halt durch, Kamerad. Nur noch 3 Jahre...")
+Fasse dich kurz (1-3 Sätze). Nutze Bundeswehr-Jargon für maximalen Spott.`;
+            
+            // User-Query wurde angepasst, um eine ANTWORT zu erbitten
+            const userQuery = `Ein Kamerad meldet stolz (oder mitleiderregend), dass er noch ${days} Dienstzeit vor sich hat. Generiere eine ${style} ANTWORT darauf.`;
+            
+            const apiKey = ""; // API-Schlüssel wird zur Laufzeit bereitgestellt
+            // KORRIGIERTER API-Link
+            const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-09-2025:generateContent?key=${apiKey}`;
+
+            const payload = {
+                contents: [{ parts: [{ text: userQuery }] }],
+                systemInstruction: {
+                    parts: [{ text: systemPrompt }]
+                },
+            };
+
+            try {
+                const result = await retryFetch(apiUrl, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(payload)
+                });
+
+                const candidate = result.candidates?.[0];
+                if (candidate && candidate.content?.parts?.[0]?.text) {
+                    messageOutput.value = candidate.content.parts[0].text;
+                } else {
+                    messageOutput.value = 'Fehler: Konnte keine Antwort generieren. (Antwort war leer)';
+                    console.warn('Unexpected API response structure:', result);
+                }
+            } catch (error) {
+                console.error('Error calling Gemini API:', error);
+                messageOutput.value = 'Fehler: Die Anfrage ist fehlgeschlagen. Bitte versuche es später erneut.';
+            } finally {
+                generateButton.disabled = false;
+                generateButton.innerHTML = '✨ Antwort generieren';
+                messageLoader.classList.add('hidden');
+                messageLoader.classList.remove('flex');
+            }
+        }
+
+        generateButton.addEventListener('click', generateMessage);
+
+        // --- Feature 2: Political Education Fact ---
+        const factButton = document.getElementById('factButton');
+        const factLoader = document.getElementById('loader-fact');
+        const factStart = document.getElementById('factStart');
+        const factContent = document.getElementById('factContent');
+        const factDateElem = document.getElementById('factDate');
+        const factTextElem = document.getElementById('factText');
+
+        async function loadPoliticalFact() {
+            factButton.disabled = true;
+            factButton.innerHTML = 'Lade Fakt...';
+            factStart.classList.add('hidden');
+            factContent.classList.add('hidden');
+            factLoader.classList.remove('hidden');
+            factLoader.classList.add('flex');
+
+            const today = new Date().toLocaleDateString('de-DE', { day: '2-digit', month: 'long' });
+            
+            const systemPrompt = `Du bist ein Historiker und Politikwissenschaftler. Deine Aufgabe ist es, einen einzelnen, interessanten historischen oder politischen Fakt für den heutigen Tag zu liefern. Der Fakt sollte relevant und bildend sein, idealerweise mit einem Bezug zu globaler oder deutscher Geschichte/Politik.
+Antworte IMMER nur mit einem JSON-Objekt im folgenden Format:
+{
+  "datum": "TT. MONAT JJJJ",
+  "fakt": "Dein 2-3 Sätze langer Fakt über das Ereignis."
+}
+Gib das Jahr des Ereignisses im Datum an.`;
+            const userQuery = `Gib mir einen politischen oder historischen Fakt für heute, den ${today}.`;
+
+            const apiKey = ""; // API-Schlüssel wird zur Laufzeit bereitgestellt
+            const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-09-2025:generateContent?key=${apiKey}`;
+
+            const payload = {
+                contents: [{ parts: [{ text: userQuery }] }],
+                systemInstruction: {
+                    parts: [{ text: systemPrompt }]
+                },
+                generationConfig: {
+                    responseMimeType: "application/json",
+                    responseSchema: {
+                        type: "OBJECT",
+                        properties: {
+                            "datum": { "type": "STRING" },
+                            "fakt": { "type": "STRING" }
+                        },
+                        required: ["datum", "fakt"]
+                    }
+                }
+            };
+
+            try {
+                const result = await retryFetch(apiUrl, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(payload)
+                });
+
+                const candidate = result.candidates?.[0];
+                if (candidate && candidate.content?.parts?.[0]?.text) {
+                    const jsonText = candidate.content.parts[0].text;
+                    const data = JSON.parse(jsonText);
+                    factDateElem.innerText = data.datum;
+                    factTextElem.innerText = data.fakt;
+                    factContent.classList.remove('hidden');
+                } else {
+                    throw new Error('Antwort war leer oder inkorrekt formatiert.');
+                }
+            } catch (error) {
+                console.error('Error calling Gemini API for fact:', error);
+                factDateElem.innerText = 'Fehler';
+                factTextElem.innerText = 'Der Fakt des Tages konnte nicht geladen werden. Bitte versuche es später erneut.';
+                factContent.classList.remove('hidden');
+            } finally {
+                factButton.disabled = false;
+                factButton.innerHTML = '✨ Neuen Fakt laden';
+                factLoader.classList.add('hidden');
+                factLoader.classList.remove('flex');
+            }
+        }
+
+        factButton.addEventListener('click', loadPoliticalFact);
+
+    </script>
+</body>
+</html>
+
