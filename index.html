@@ -39,9 +39,9 @@
     <!-- Header --><header class="bg-bw-beige shadow-md sticky top-0 z-50">
         <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
             <div class="flex items-center space-x-3">
-                <!-- BITTE GEHOSTETEN LINK ZUM OLIVGRÜNEN LOGO HIER EINFÜGEN --><img src="https://i.imgur.com/TreFsVm.png" alt="[Bild des BW Dienstzeitrechner Logos]" 
+                <!-- Pfad zum Logo (muss "logo.jpg" heißen) --><img src="logo.jpg" alt="[Bild des BW Dienstzeitrechner Logos]" 
                      class="h-10 w-auto object-cover"
-                     onerror="this.src='https://placehold.co/150x40/5d6a4a/e8e6d9?text=Logo+URL+einf%C3%BCgen'; this.onerror=null;">
+                     onerror="this.src='https://placehold.co/150x40/5d6a4a/e8e6d9?text=logo.jpg+hochladen'; this.onerror=null;">
                 <span class="text-xl font-bold text-white"></span>
             </div>
             
@@ -50,10 +50,10 @@
 
     <main>
         <!-- Hero Section --><section class="relative h-[35vh] min-h-[400px] flex items-center justify-center text-center text-white overflow-hidden">
-            <!-- Gehostetes Banner-Bild --><img src="https://i.imgur.com/cJvmGGC.jpeg" 
+            <!-- Pfad zum Banner (muss "banner.jpg" heißen) --><img src="banner.jpg" 
                  alt="[Bild eines Banners mit Maßband und dem App-Namen]" 
                  class="absolute inset-0 w-full h-full object-cover z-0"
-                 onerror="this.src='https://placehold.co/1920x1080/5d6a4a/e8e6d9?text=BW+Dienstzeitrechner'; this.onerror=null;">
+                 onerror="this.src='https://placehold.co/1920x1080/5d6a4a/e8e6d9?text=banner.jpg+hochladen'; this.onerror=null;">
             <!-- Overlay --><div class="absolute inset-0 bg-black opacity-80 z-10"></div>
             
             <div class="relative z-10 p-6">
@@ -89,11 +89,11 @@
                             Das Wichtigste dabei: Ich kann meinen aktuellen Status jederzeit per Messenger mit meinen Kameraden teilen und sie so auf dem Laufenden halten. Wenn das keine Kameradschaft ist!
                         </p>
                     </div>
-                    <!-- Gehostetes Screenshot-Bild --><div class="md:w-1/3 flex justify-center">
-                        <img src="https://i.imgur.com/LAfNU2z.jpg" 
+                    <!-- Pfad zum Screenshot (muss "feature-sharing.jpg" heißen) --><div class="md:w-1/3 flex justify-center">
+                        <img src="feature-sharing.jpg" 
                              alt="[Screenshot der App, der die Teilen-Buttons anzeigt]" 
                              class="rounded-2xl shadow-lg max-w-xs w-full"
-                             onerror="this.src='https://placehold.co/300x600/1a1a1a/e8e6d9?text=Teilen-Funktion'; this.onerror=null;">
+                             onerror="this.src='https://placehold.co/300x600/1a1a1a/e8e6d9?text=feature-sharing.jpg'; this.onerror=null;">
                     </div>
                 </div>
             </div>
@@ -132,7 +132,7 @@
                             <textarea id="geminiOutput" rows="4" class="w-full bg-gray-900 text-gray-300 rounded-md p-2 mt-4 border border-gray-700" placeholder="Deine Antwort erscheint hier..."></textarea>
                         </div>
                     </div>
-                    <!-- Text Content --><div class="md:w-1/2 text-center md:text-left">
+                    <!-- Text Content --><div class="md:w/1/2 text-center md:text-left">
                         <h3 class="text-3xl md:text-4xl font-bold text-bw-orange mb-4">DEMNÄCHST: Der Tagemeldungs-Antwort-Generator ✨</h3>
                         <p class="text-xl text-gray-300 leading-relaxed mb-4">
                             Keine Lust, dir die immer gleiche "Tagemeldung" der Kameraden anzuhören? Nerven dich die Kameraden, weil ihre Tage gefühlte Welten kürzer sind? Du einfach nicht aufholen kannst?
@@ -157,7 +157,7 @@
                             Schluss mit langweiligen Kalendersprüchen. Der BWDienstzeitrechner gräbt jeden Tag einen knallharten historischen Fakt für dich aus. Perfekt, um dir die Monotonie des Dienstalltags mit einer Prise Weltuntergangsstimmung oder historischer Absurdität zu 'versüßen'. Wissen, das dir beweist: Verglichen mit der Geschichte ist dein Tag heute fast schon ein Urlaub.
                         </p>
                     </div>
-                    <!-- Demo UI --><div class="md:w-1/2 lg:w-1/3 flex justify-center">
+                    <!-- Demo UI --><div class="md:w/1/2 lg:w-1/3 flex justify-center">
                         <div class="bg-bw-dark p-6 rounded-lg shadow-lg w-full max-w-md border border-gray-700">
                             <h4 class="text-lg font-semibold text-gray-400 uppercase mb-3">Heutige Politische Bildung</h4>
                             
@@ -184,15 +184,15 @@
         <!-- Screenshot Gallery --><section class="container mx-auto px-6 py-16 md:py-24">
             <h2 class="text-3xl md:text-4xl font-bold text-center text-bw-orange mb-12">Ein Blick in die App</h2>
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 md:gap-8">
-                <!-- Gehostete Screenshot-Galerie --><script>
+                <!-- Screenshot-Galerie mit relativen Pfaden --><script>
                     const screenshots = [
-                        'https://i.imgur.com/6ZGIABi.jpeg', // Countdown
-                        'https://i.imgur.com/OILat3w.jpeg', // Progress
-                        'https://i.imgur.com/oELU617.jpg', // Milestones
-                        'https://i.imgur.com/tCyQimU.jpg', // Profile
-                        'https://i.imgur.com/FEnM1NM.jpg', // Design
-                        'https://i.imgur.com/LAfNU2z.jpg', // Analysis/Share
-                        'https://i.imgur.com/yqmMK1a.jpg'  // Pol. Bildung
+                        'sc-countdown.jpg',
+                        'sc-progress.jpg',
+                        'sc-milestones.jpg',
+                        'sc-profile.jpg',
+                        'sc-design.jpg',
+                        'sc-sharing.jpg',
+                        'sc-pol-bildung.jpg'
                     ];
 
                     const gallery = document.currentScript.parentElement;
@@ -205,7 +205,7 @@
                         img.alt = `[Screenshot der BW Dienstzeitrechner App]`;
                         img.className = 'w-full max-w-xs rounded-2xl shadow-lg border-4 border-gray-700 hover:border-bw-orange transition-all transform hover:scale-105';
                         img.onerror = function() {
-                            this.src=`https://placehold.co/300x600/1a1a1a/e8e6d9?text=Screenshot`;
+                            this.src=`https://placehold.co/300x600/1a1a1a/e8e6d9?text=${src}`;
                             this.onerror=null;
                         };
                         
