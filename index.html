@@ -277,13 +277,24 @@
         const messageOutput = document.getElementById('geminiOutput');
         const messageLoader = document.getElementById('loader-message');
 
+        // Funktion zum Anpassen der Textarea-Höhe
+        function resizeTextarea(ta) {
+            if (ta) {
+                ta.style.height = 'auto'; // Zurücksetzen, um Höhe neu zu berechnen
+                ta.style.height = (ta.scrollHeight) + 'px'; // An Scroll-Höhe anpassen
+            }
+        }
+        // Beim Laden einmal anpassen (falls Text vorhanden, sonst min-height)
+        resizeTextarea(messageOutput);
+        
         async function generateMessage() {
             generateButton.disabled = true;
             generateButton.innerHTML = 'Generiere...';
             messageLoader.classList.remove('hidden');
             messageLoader.classList.add('flex');
             messageOutput.value = '';
-
+            resizeTextarea(messageOutput); // Höhe zurücksetzen
+            
             const days = document.getElementById('messageDays').value;
             const style = document.getElementById('messageStyle').value;
 
@@ -362,7 +373,7 @@ Antworte IMMER nur mit einem JSON-Objekt im folgenden Format:
 Gib das Jahr des Ereignisses im Datum an.`;
             const userQuery = `Gib mir einen politischen oder historischen Fakt für heute, den ${today}.`;
 
-            const apiKey = "AIzaSyAi-851cORQI1_7mPzEoph4pebqoomNQg0"; // <-- Fügen Sie hier Ihren API-Schlüssel ein
+            const apiKey = "AIzaSyAi-851cORQI1_7mPzEoph4pebqoomNQg0"; // <-- Fügen Sie hier Ihren API-Schlüssel ein - Tage Meldungs Generator
             const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-09-2025:generateContent?key=${apiKey}`;
 
             const payload = {
