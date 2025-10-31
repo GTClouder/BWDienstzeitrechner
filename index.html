@@ -15,25 +15,73 @@
             background-color: #f0f2f5; /* Hellerer Hintergrund */
             color: #333; /* Dunklerer Text für Kontrast */
         }
-        ..bg-bw-dark { background-color: #3f4f3f; } /* Etwas helleres Dunkelgrün */
+        .bg-bw-dark { background-color: #3f4f3f; } /* Etwas helleres Dunkelgrün */
         .bg-bw-olive { background-color: #6c806c; } /* Helleres Olivgrün */
         .text-bw-beige { color: #f0f0e8; } /* Helleres Beige */
         .text-bw-orange { color: #d9534f; } /* Ein kräftigeres, leicht rötliches Orange für Akzente */
         .border-bw-orange { border-color: #d9534f; }
         .hover-bg-bw-orange:hover { background-color: #e66b67; }
-        /* Kleiner Lade-Spinner */
+
+        /* Header */
+        header {
+            background-color: #ffffff; /* Weißer Header */
+            color: #333;
+        }
+        header .text-white { /* Anpassung für Logo Text, falls vorhanden */
+            color: #333;
+        }
+
+        /* Hero Section */
+        .hero-overlay {
+            background-color: rgba(0,0,0,0.6); /* Leichteres Overlay */
+        }
+        .hero-text-shadow {
+            text-shadow: 0 1px 2px rgba(0,0,0,0.5); /* Weniger starker Schatten */
+        }
+
+        /* Section Backgrounds */
+        .bg-gray-800 { background-color: #e0e4e8; color: #333; } /* Hellerer Grauton */
+        .bg-gray-700 { background-color: #cad0d6; color: #333; } /* Noch hellerer Grauton */
+        .bg-gray-900 { background-color: #d1d6db; color: #333; } /* Hintergrund für Textarea und Buttons */
+
+        /* Textarea and Input */
+        textarea, input, select {
+            background-color: #ffffff; /* Weißer Hintergrund für Eingabefelder */
+            color: #333;
+            border-color: #c0c4c8; /* Hellerer Rand */
+        }
+        textarea::placeholder, input::placeholder {
+            color: #888;
+        }
+        .text-gray-300 { color: #555; }
+        .text-gray-400 { color: #666; }
+        .text-gray-500 { color: #777; }
+        .text-gray-200 { color: #444; } /* Textfarbe für Eingaben */
+
+        /* Loader */
         .loader {
-            border: 4px solid #f3f3f3; /* Light grey */
-            border-top: 4px solid #f97316; /* Orange */
-            border-radius: 50%;
-            width: 24px;
-            height: 24px;
-            animation: spin 1s linear infinite;
+            border-top: 4px solid #d9534f; /* Orange */
         }
-        @keyframes spin {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
+
+        /* Footer */
+        footer {
+            background-color: #333; /* Dunklerer Footer für Kontrast */
+            color: #ccc;
         }
+        footer a {
+            color: #f0f0e8; /* Hellerer Linktext im Footer */
+        }
+        footer a:hover {
+            color: #ffffff;
+        }
+
+        /* General font color adjustments for dark sections */
+        .bg-bw-dark .text-gray-300,
+        .bg-gray-800 .text-gray-300,
+        .bg-bw-olive .text-bw-beige {
+            color: #f0f0e8; /* Sorgt dafür, dass Text auf dunklen Hintergründen hell bleibt */
+        }
+        .bg-gray-800 h3 { color: #d9534f; } /* Überschriften auf helleren Grautönen in Orange */
     </style>
 </head>
 <body class="bg-bw-dark text-bw-beige">
