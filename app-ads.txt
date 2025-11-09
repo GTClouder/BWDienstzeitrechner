@@ -1,1 +1,4 @@
+# app-ads.txt für BW Dienstzeitrechner
+# Publisher ID: pub-1491738221926214
+
 google.com, pub-1491738221926214, DIRECT, f08c47fec0942fa0
