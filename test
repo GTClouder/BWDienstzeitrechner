@@ -1,0 +1,520 @@
+DOCTYPE html>
+<html lang="de" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="BWDienstzeitrechner - Die App für Soldaten, die Tage zählen statt Erbsen. DZE, Bergfest und mehr.">
+    <meta name="keywords" content="Bundeswehr, Dienstzeit, DZE, AGA, Maßband, NATO-Pause, Abgänger">
+    <title>BWDienstzeitrechner - Bis zum DZE und noch viel weiter</title>
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts (Inter) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+    
+    <style>
+        /* Basis-Styling */
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #111827; /* gray-900 */
+            color: #d1d5db; /* gray-300 */
+        }
+        
+        /* Akzentfarbe (Bundeswehr-Gold/Gelb) */
+        :root {
+            --accent-color: #f59e0b; /* amber-500 */
+        }
+        
+        .text-accent {
+            color: var(--accent-color);
+        }
+        
+        .bg-accent {
+            background-color: var(--accent-color);
+        }
+        
+        .border-accent {
+            border-color: var(--accent-color);
+        }
+        
+        .hover\:text-accent:hover {
+            color: var(--accent-color);
+        }
+
+        .hover\:bg-accent-dark:hover {
+            background-color: #d97706; /* amber-600 */
+        }
+    </style>
+</head>
+<body class="antialiased">
+
+    <!-- Header -->
+    <header class="sticky top-0 z-50 w-full backdrop-blur-sm bg-gray-900/80 border-b border-gray-700/50">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <!-- Logo Bereich -->
+                <div class="flex-shrink-0 flex items-center gap-3">
+                    <!-- 
+                         VERSUCH 1: Lokales Bild (logo.jpg)
+                         VERSUCH 2 (Fallback): Offizielles Bundeswehr-Kreuz von Wikimedia
+                    -->
+                    <img src="logo.jpg" 
+                         alt="BWDienstzeitrechner Logo" 
+                         class="h-10 w-10 rounded-lg shadow-md border border-gray-600/50 object-cover bg-gray-800"
+                         onerror="this.onerror=null; this.src='https://upload.wikimedia.org/wikipedia/commons/thumb/5/5c/Iron_Cross.svg/1024px-Iron_Cross.svg.png';">
+                    
+                    <h1 class="text-2xl font-bold text-white tracking-tight">BWDienstzeitrechner</h1>
+                </div>
+                <!-- Navigation (Desktop) -->
+                <nav class="hidden md:flex md:items-center md:space-x-6 lg:space-x-8">
+                    <a href="#mission" class="text-gray-300 hover:text-accent transition-colors font-medium">Lagevortrag</a>
+                    <a href="#features" class="text-gray-300 hover:text-accent transition-colors font-medium">Ausstattung</a>
+                    <a href="#timeline" class="text-gray-300 hover:text-accent transition-colors font-medium">Zeitstrahl</a>
+                    <a href="#download" class="text-gray-300 hover:text-accent transition-colors font-medium">Empfangen</a>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="relative pt-24 pb-32 md:pt-32 md:pb-40 bg-gray-900 text-white text-center overflow-hidden">
+        <div class="absolute inset-0 bg-gradient-to-b from-gray-900 via-gray-900 to-gray-800 opacity-80"></div>
+        <div class="relative container mx-auto px-4 sm:px-6 lg:px-8 z-10">
+            <h2 class="text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tight mb-4">
+                Zählst du noch <span class="text-accent">Erbsen</span> oder schon Tage?
+            </h2>
+            <p class="hero-subtitle text-lg md:text-xl text-gray-300 max-w-3xl mx-auto mb-10">
+                Das digitale Maßband für den leidgeprüften Soldaten. Von der AGA-Hölle bis zum glorreichen DZE – wir bringen dich durch, Kamerad.
+            </p>
+            <div class="flex justify-center gap-4 flex-wrap">
+                <!-- Google Play Button -->
+                <a href="https://play.google.com/store/apps/details?id=de.bundeswehr.dienstzeitrechner" class="inline-flex items-center justify-center gap-3 bg-accent text-gray-900 font-bold py-3 px-6 rounded-lg shadow-lg transform transition-transform hover:scale-105 hover:bg-accent-dark" target="_blank">
+                    <svg class="w-6 h-6" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M3,20.5V3.5C3,2.91 3.34,2.39 3.84,2.15L13.69,12L3.84,21.85C3.34,21.6 3,21.09 3,20.5M16.81,15.12L6.05,21.34L14.54,12.85L16.81,15.12M20.16,10.81C20.5,11.08 20.75,11.5 20.75,12C20.75,12.5 20.53,12.9 20.18,13.18L17.89,14.5L15.39,12L17.89,9.5L20.16,10.81M6.05,2.66L16.81,8.88L14.54,11.15L6.05,2.66Z"/>
+                    </svg>
+                    Ausfassen bei Google Play
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- NEUER ABSCHNITT: MISSION -->
+    <section id="mission" class="py-20 md:py-24 bg-gray-800">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row items-center gap-12 lg:gap-16">
+                
+                <!-- Linke Spalte: Text -->
+                <div class="md:w-1/2">
+                    <h2 class="text-3xl md:text-4xl font-extrabold text-white mb-6">
+                        Tradition trifft <span class="text-accent">High-Tech</span>
+                    </h2>
+                    <p class="text-lg text-gray-300 mb-6 leading-relaxed">
+                        Jeder kennt das abgeranzte <strong class="text-white">Maßband</strong> aus Papier. Es reißt, es wird nass, und wenn der Spieß schlecht drauf ist, nimmt er es dir weg.
+                    </p>
+                    <p class="text-lg text-gray-300 mb-8 leading-relaxed">
+                        Schluss damit! Wir haben das Ding digitalisiert. Der BWDienstzeitrechner ist <strong class="text-accent">das digitale Maßband</strong> für die Truppe von heute. Funktioniert auch im Biwak ohne WLAN (meistens).
+                    </p>
+                    <ul class="space-y-4 text-gray-300">
+                        <li class="flex items-start gap-3">
+                            <svg class="w-6 h-6 mr-2 text-accent flex-shrink-0 mt-1" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>
+                            <span><strong class="text-white">Tradition bewahren:</strong> Schnippeln war gestern. Heute wird gewischt.</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <svg class="w-6 h-6 mr-2 text-accent flex-shrink-0 mt-1" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>
+                            <span><strong class="text-white">Modern interpretieren:</strong> Präziser als der Dienstplan für nächste Woche.</span>
+                        </li>
+                    </ul>
+                </div>
+                
+                <!-- Rechte Spalte: Visuelle Metapher -->
+                <div class="md:w-1/2 w-full">
+                    <div class="relative bg-gray-900 p-8 rounded-xl border border-gray-700 shadow-2xl">
+                        <div class="flex justify-around items-center">
+                            <!-- 
+                                ÄNDERUNG: Leerzeichen im Dateinamen mit %20 ersetzt.
+                                Das Fallback-SVG (Altpapier-Icon) wurde entfernt.
+                            -->
+                            <div class="flex flex-col items-center text-gray-400">
+                                <img src="massband%20abgenutzt.jpg" 
+                                     alt="Abgenutztes Maßband" 
+                                     class="h-24 w-auto object-contain mb-2 opacity-80 hover:opacity-100 transition-opacity transform rotate-[-5deg] shadow-lg rounded-sm"
+                                     onerror="this.src='https://placehold.co/100x100/333/999?text=Maßband';">
+                                
+                                <span class="mt-2 text-lg font-semibold">Das Original</span>
+                                <span class="text-sm">(Verknickt & Verloren)</span>
+                            </div>
+                            
+                            <!-- Pfeil -->
+                            <svg class="w-12 h-12 md:w-16 md:h-16 text-accent" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M12.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-2.293-2.293a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
+                            
+                            <!-- Symbol für "Neu" (Smartphone) -->
+                            <!-- 
+                                ÄNDERUNG: Hier wurde das SVG durch das hochgeladene Bild "handy app.jpg" ersetzt.
+                                Leerzeichen im Dateinamen wurden mit %20 ersetzt.
+                            -->
+                            <div class="flex flex-col items-center text-accent">
+                                <img src="handy%20app.jpg" 
+                                     alt="BWDienstzeitrechner App auf Smartphone" 
+                                     class="h-24 w-auto object-contain mb-2 opacity-90 hover:opacity-100 transition-opacity transform rotate-[5deg] shadow-lg rounded-xl"
+                                     onerror="this.src='https://placehold.co/100x100/333/f59e0b?text=App';">
+                                
+                                <span class="mt-2 text-lg font-semibold">Die App</span>
+                                <span class="text-sm">(Unkaputtbar)</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- ENDE NEUER ABSCHNITT -->
+
+
+    <!-- Features Section -->
+    <section id="features" class="py-20 md:py-24 bg-gray-900">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-3xl md:text-4xl font-extrabold text-center text-white mb-4">STAN-Ausstattung (Digital)</h2>
+            <p class="text-lg text-gray-400 text-center max-w-2xl mx-auto mb-16">
+                Alles dabei, was du brauchst, um nicht den Verstand zu verlieren.
+            </p>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Checkmark SVG Icon -->
+                <svg class="hidden">
+                    <symbol id="icon-check" viewBox="0 0 20 20" fill="currentColor">
+                         <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+                    </symbol>
+                </svg>
+
+                <!-- Feature Card 1: Timeline -->
+                <div class="feature-card bg-gray-800 p-6 rounded-xl shadow-lg border border-gray-700 transition-all hover:border-accent hover:shadow-2xl">
+                    <div class="text-4xl mb-4 text-accent">📊</div>
+                    <h3 class="text-2xl font-bold text-white mb-3">Timeline statt Lagekarte</h3>
+                    <p class="text-gray-400 mb-4">Visualisiere dein gesamtes Elend mit einer zoomfähigen Timeline (1x bis 10.000%).</p>
+                    <ul class="space-y-2 text-gray-300">
+                        <li class="flex items-center"><svg class="w-5 h-5 mr-2 text-accent flex-shrink-0"><use xlink:href="#icon-check"></use></svg>Zoom rein bis zur NATO-Pause</li>
+                        <li class="flex items-center"><svg class="w-5 h-5 mr-2 text-accent flex-shrink-0"><use xlink:href="#icon-check"></use></svg>17 Meilensteine (die echt zählen)</li>
+                        <li class="flex items-center"><svg class="w-5 h-5 mr-2 text-accent flex-shrink-0"><use xlink:href="#icon-check"></use></svg>Übersichtlicher als GeZi-Aushänge</li>
+                    </ul>
+                </div>
+
+                <!-- Feature Card 2: Milestones -->
+                <div class="feature-card bg-gray-800 p-6 rounded-xl shadow-lg border border-gray-700 transition-all hover:border-accent hover:shadow-2xl">
+                    <div class="text-4xl mb-4 text-accent">🎯</div>
+                    <h3 class="text-2xl font-bold text-white mb-3">Bergfest & DZE</h3>
+                    <p class="text-gray-400 mb-4">Vergiss nie wieder, wann du die Hälfte rum hast. Wichtiger als jeder Dienstgrad.</p>
+                    <ul class="space-y-2 text-gray-300">
+                        <li class="flex items-center"><svg class="w-5 h-5 mr-2 text-accent flex-shrink-0"><use xlink:href="#icon-check"></use></svg>AGA Ende (Endlich Mensch)</li>
+                        <li class="flex items-center"><svg class="w-5 h-5 mr-2 text-accent flex-shrink-0"><use xlink:href="#icon-check"></use></svg>Bergfest (Abwärts geht's)</li>
+                        <li class="flex items-center"><svg class="w-5 h-5 mr-2 text-accent flex-shrink-0"><use xlink:href="#icon-check"></use></svg>DZE - Der heilige Gral</li>
+                    </ul>
+                </div>
+                
+                <!-- Feature Card 3: Calendar -->
+                <div class="feature-card bg-gray-800 p-6 rounded-xl shadow-lg border border-gray-700 transition-all hover:border-accent hover:shadow-2xl">
+                    <div class="text-4xl mb-4 text-accent">📅</div>
+                    <h3 class="text-2xl font-bold text-white mb-3">Dienstplan-Ersatz</h3>
+                    <p class="text-gray-400 mb-4">Plane deine Restzeit. Markiere dir die Tage, an denen du KzH bist (oder sein willst).</p>
+                    <ul class="space-y-2 text-gray-300">
+                        <li class="flex items-center"><svg class="w-5 h-5 mr-2 text-accent flex-shrink-0"><use xlink:href="#icon-check"></use></svg>Übersichtliche Monatsansicht</li>
+                        <li class="flex items-center"><svg class="w-5 h-5 mr-2 text-accent flex-shrink-0"><use xlink:href="#icon-check"></use></svg>Wochenstatistik für die Stube</li>
+                        <li class="flex items-center"><svg class="w-5 h-5 mr-2 text-accent flex-shrink-0"><use xlink:href="#icon-check"></use></svg>Wann ist endlich Wochenende?</li>
+                    </ul>
+                </div>
+
+                <!-- Feature Card 4: AI -->
+                <div class="feature-card bg-gray-800 p-6 rounded-xl shadow-lg border border-gray-700 transition-all hover:border-accent hover:shadow-2xl">
+                    <div class="text-4xl mb-4 text-accent">🤖</div>
+                    <h3 class="text-2xl font-bold text-white mb-3">KI (Künstliche Intelligenz)</h3>
+                    <p class="text-gray-400 mb-4">Nicht zu verwechseln mit dem Gefreiten vom Dienst. Powered by Groq.</p>
+                    <ul class="space-y-2 text-gray-300">
+                        <li class="flex items-center"><svg class="w-5 h-5 mr-2 text-accent flex-shrink-0"><use xlink:href="#icon-check"></use></svg>Antwort-Generator für dumme Fragen</li>
+                        <li class="flex items-center"><svg class="w-5 h-5 mr-2 text-accent flex-shrink-0"><use xlink:href="#icon-check"></use></svg>Sprengung auf Knopfdruck</li>
+                        <li class="flex items-center"><svg class="w-5 h-5 mr-2 text-accent flex-shrink-0"><use xlink:href="#icon-check"></use></svg>PolBil für wenn der Prüfer kommt</li>
+                    </ul>
+                </div>
+                
+                <!-- Feature Card 5: Data -->
+                <div class="feature-card bg-gray-800 p-6 rounded-xl shadow-lg border border-gray-700 transition-all hover:border-accent hover:shadow-2xl">
+                    <div class="text-4xl mb-4 text-accent">💾</div>
+                    <h3 class="text-2xl font-bold text-white mb-3">VS - Nur für den Dienstgebrauch</h3>
+                    <p class="text-gray-400 mb-4">Deine Daten bleiben bei dir. 100% offline, keine Cloud, kein MAD.</p>
+                    <ul class="space-y-2 text-gray-300">
+                        <li class="flex items-center"><svg class="w-5 h-5 mr-2 text-accent flex-shrink-0"><use xlink:href="#icon-check"></use></svg>Lokal gespeichert (Save)</li>
+                        <li class="flex items-center"><svg class="w-5 h-5 mr-2 text-accent flex-shrink-0"><use xlink:href="#icon-check"></use></svg>Export & Import (Verlegung)</li>
+                        <li class="flex items-center"><svg class="w-5 h-5 mr-2 text-accent flex-shrink-0"><use xlink:href="#icon-check"></use></svg>Sicherer als die Lochkoppel</li>
+                    </ul>
+                </div>
+                
+                <!-- Feature Card 6: Design -->
+                <div class="feature-card bg-gray-800 p-6 rounded-xl shadow-lg border border-gray-700 transition-all hover:border-accent hover:shadow-2xl">
+                    <div class="text-4xl mb-4 text-accent">🎨</div>
+                    <h3 class="text-2xl font-bold text-white mb-3">Design (Flecktarn-kompatibel)</h3>
+                    <p class="text-gray-400 mb-4">Sieht gut aus, funktioniert einfach. Auch mit Handschuhen bedienbar (theoretisch).</p>
+                    <ul class="space-y-2 text-gray-300">
+                        <li class="flex items-center"><svg class="w-5 h-5 mr-2 text-accent flex-shrink-0"><use xlink:href="#icon-check"></use></svg>Material Design 3 (Modern)</li>
+                        <li class="flex items-center"><svg class="w-5 h-5 mr-2 text-accent flex-shrink-0"><use xlink:href="#icon-check"></use></svg>Dark Mode (Nachtsicht-tauglich)</li>
+                        <li class="flex items-center"><svg class="w-5 h-5 mr-2 text-accent flex-shrink-0"><use xlink:href="#icon-check"></use></svg>Flüssiger als das Bier im Mannschaftsheim</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Timeline Feature Highlight -->
+    <section id="timeline" class="py-20 md:py-24 bg-gray-800 text-white">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col lg:flex-row items-center gap-12 lg:gap-16">
+                <!-- Text Content -->
+                <div class="lg:w-1/2">
+                    <h2 class="text-3xl md:text-4xl font-extrabold mb-6">Wichtiger als das G36</h2>
+                    <p class="text-lg text-gray-300 mb-8 leading-relaxed">
+                        Die Timeline zeigt dir knallhart die Wahrheit: Wie lange du noch "Jawohl" brüllen musst. 
+                        Zoom rein, bis du den Geruch der Freiheit (oder der EPA) riechen kannst.
+                    </p>
+                    <div class="space-y-6">
+                        <div class="flex items-start gap-4">
+                            <span class="text-3xl pt-1">🔍</span>
+                            <div>
+                                <strong class="text-lg text-white">10.000% Zoom</strong>
+                                <p class="text-gray-400">Damit findest du auch die kleinste Kaffeepause.</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-4">
+                            <span class="text-3xl pt-1">📍</span>
+                            <div>
+                                <strong class="text-lg text-white">17 Meilensteine</strong>
+                                <p class="text-gray-400">Von "Frischfleisch" bis "Abgänger".</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-4">
+                            <span class="text-3xl pt-1">💾</span>
+                            <div>
+                                <strong class="text-lg text-white">Merkt sich alles</strong>
+                                <p class="text-gray-400">Deine Ansicht bleibt gespeichert. Elefantengedächtnis.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Visual Mockup -->
+                <div class="lg:w-1/2 w-full">
+                    <div class="timeline-mockup bg-gray-900 p-6 sm:p-8 rounded-xl border border-gray-700 shadow-2xl">
+                        <div class="text-center font-semibold text-gray-300 mb-6 text-lg">Timeline-Ansicht (Mockup)</div>
+                        <div class="relative h-3 bg-gray-700 rounded-full">
+                            <!-- Progress -->
+                            <div class="absolute h-3 bg-accent rounded-full" style="width: 45%;"></div>
+                            <!-- "Heute" Marker -->
+                            <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-5 h-5 bg-white rounded-full border-4 border-gray-800 shadow-lg">
+                                <span class="absolute -top-7 left-1/2 -translate-x-1/2 text-xs font-bold text-white whitespace-nowrap bg-gray-800 px-2 py-0.5 rounded">HEUTE (Bergfest!)</span>
+                            </div>
+                        </div>
+                        <div class="flex justify-between text-xs font-bold text-gray-400 mt-3">
+                            <span>Einberufung</span>
+                            <span>DZE</span>
+                        </div>
+                        <div class="flex justify-between text-xs text-gray-500 mt-6 pt-4 border-t border-gray-700">
+                            <span>AGA</span>
+                            <span>25%</span>
+                            <span>50%</span>
+                            <span>75%</span>
+                            <span>100 Tage</span>
+                            <span class="text-accent">🍺</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Tech Stack -->
+    <section class="tech-stack py-20 md:py-24 bg-gray-900">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-3xl md:text-4xl font-extrabold text-center text-white mb-4">Moderne Technik (Kein Funkgerät C)</h2>
+            <p class="text-lg text-gray-400 text-center max-w-2xl mx-auto mb-16">
+                Entwickelt mit Zeug, das tatsächlich funktioniert.
+            </p>
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-8 max-w-4xl mx-auto">
+                <div class="tech-item text-center p-6 bg-gray-800 rounded-xl shadow-lg border border-gray-700">
+                    <img src="https://storage.googleapis.com/cms-storage-bucket/0dbfcc7a59cd1cf16282.png" alt="Flutter" class="h-16 w-16 mx-auto mb-4 object-contain">
+                    <h3 class="text-xl font-semibold text-white">Flutter 3.9+</h3>
+                </div>
+                <div class="tech-item text-center p-6 bg-gray-800 rounded-xl shadow-lg border border-gray-700">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/7/7e/Dart-logo.png" alt="Dart" class="h-16 w-16 mx-auto mb-4 object-contain">
+                    <h3 class="text-xl font-semibold text-white">Dart</h3>
+                </div>
+                <div class="tech-item text-center p-6 bg-gray-800 rounded-xl shadow-lg border border-gray-700">
+                    <div class="text-5xl mx-auto mb-4 h-16 w-16 flex items-center justify-center">🤖</div>
+                    <h3 class="text-xl font-semibold text-white">Gemini AI</h3>
+                </div>
+                <div class="tech-item text-center p-6 bg-gray-800 rounded-xl shadow-lg border border-gray-700">
+                    <div class="text-5xl mx-auto mb-4 h-16 w-16 flex items-center justify-center">📦</div>
+                    <h3 class="text-xl font-semibold text-white">Lokal Storage</h3>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Version Info -->
+    <section class="version-info py-20 md:py-24 bg-gray-800">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="version-card bg-gray-900 max-w-3xl mx-auto rounded-xl shadow-2xl p-8 md:p-12 border border-gray-700 relative overflow-hidden">
+                <div class="absolute top-0 right-0 bg-accent text-gray-900 font-bold text-sm py-1 px-4 rounded-bl-lg shadow-md">Version 2.0.0</div>
+                <h3 class="text-3xl font-bold text-white mb-4">Neuausstattung</h3>
+                <p class="text-gray-300 leading-relaxed mb-6">
+                    Komplett neu entwickelt mit Flutter. Die alte Version (Android Studio V1.011) wurde ehrenhaft entlassen.
+                    Das hier ist der neue "Hot Shit".
+                </p>
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-3 text-lg">
+                    <div class="flex items-center text-gray-200"><svg class="w-5 h-5 mr-2 text-accent flex-shrink-0"><use xlink:href="#icon-check"></use></svg>Timeline überarbeitet</div>
+                    <div class="flex items-center text-gray-200"><svg class="w-5 h-5 mr-2 text-accent flex-shrink-0"><use xlink:href="#icon-check"></use></svg>Design (Hübsch gemacht)</div>
+                    <div class="flex items-center text-gray-200"><svg class="w-5 h-5 mr-2 text-accent flex-shrink-0"><use xlink:href="#icon-check"></use></svg>Läuft schneller</div>
+                    <div class="flex items-center text-gray-200"><svg class="w-5 h-5 mr-2 text-accent flex-shrink-0"><use xlink:href="#icon-check"></use></svg>Schlauer dank KI</div>
+                    <div class="flex items-center text-gray-200"><svg class="w-5 h-5 mr-2 text-accent flex-shrink-0"><use xlink:href="#icon-check"></use></svg>Daten bleiben sicher</div>
+                    <div class="flex items-center text-gray-200"><svg class="w-5 h-5 mr-2 text-accent flex-shrink-0"><use xlink:href="#icon-check"></use></svg>Für echte Smartphones</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Download Section -->
+    <section id="download" class="download py-20 md:py-24 bg-accent text-gray-900">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h2 class="text-3xl md:text-4xl font-extrabold mb-4">Jetzt ausfassen!</h2>
+            <p class="text-xl text-gray-700 mb-10">Wegtreten und runterladen. Befehl von oben.</p>
+            
+            <div class="flex flex-col md:flex-row justify-center items-center gap-4 mb-8">
+                <!-- Google Play Button (Aktiv) -->
+                <a href="https://play.google.com/store/apps/details?id=de.bundeswehr.dienstzeitrechner" class="inline-flex items-center justify-center gap-3 bg-gray-900 text-white font-bold py-4 px-8 rounded-lg shadow-xl transform transition-transform hover:scale-105 border border-gray-700" target="_blank">
+                    <svg class="w-10 h-10" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M3,20.5V3.5C3,2.91 3.34,2.39 3.84,2.15L13.69,12L3.84,21.85C3.34,21.6 3,21.09 3,20.5M16.81,15.12L6.05,21.34L14.54,12.85L16.81,15.12M20.16,10.81C20.5,11.08 20.75,11.5 20.75,12C20.75,12.5 20.53,12.9 20.18,13.18L17.89,14.5L15.39,12L17.89,9.5L20.16,10.81M6.05,2.66L16.81,8.88L14.54,11.15L6.05,2.66Z"/>
+                    </svg>
+                    <div class="text-left">
+                        <small class="block -mb-1 text-gray-300 text-xs">Empfangen bei</small>
+                        <strong class="text-xl">Google Play</strong>
+                    </div>
+                </a>
+
+                <!-- App Store Button (Deaktiviert/Geplant) -->
+                <button class="inline-flex items-center justify-center gap-3 bg-gray-800 text-gray-500 font-bold py-4 px-8 rounded-lg shadow-xl border border-gray-700 cursor-not-allowed opacity-75" disabled title="Noch in der Planung">
+                    <svg class="w-10 h-10" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.83-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 13.4 4.37 10.93c.71-1.23 1.97-2 3.35-2.03 1.34-.03 2.31.91 3.39.91 1.08 0 2.36-1.13 3.95-1.11.57.02 2.16.23 3.19 1.73-.08.05-2.08 1.21-2.05 3.85.03 2.65 2.35 3.65 2.4 3.67-.02.07-.38 1.3-.89 1.55zM13 6.76c.6-.73 1.03-1.72.92-2.76-.95.04-2.1.63-2.79 1.44-.59.69-1.1 1.71-.97 2.71 1.06.08 2.24-.66 2.84-1.39z"></path>
+                    </svg>
+                    <div class="text-left">
+                        <small class="block -mb-1 text-xs">Noch nicht im</small>
+                        <strong class="text-xl">App Store</strong>
+                    </div>
+                </button>
+            </div>
+
+            <!-- Sarcastic Note for Apple Users -->
+            <div class="bg-gray-800/50 rounded-lg p-4 max-w-2xl mx-auto mb-10 border border-gray-700 shadow-inner">
+                <p class="text-gray-300 text-sm md:text-base">
+                    <span class="text-red-500 font-bold text-lg">⚠️ Meldung an die Apfel-Front:</span><br>
+                    Für iPhone-Nutzer gilt vorerst: <strong>Ruhe im Verfügungsraum.</strong> 
+                    Die iOS-Version ist in Planung, hängt aber noch im Beschaffungsamt fest (Formular A-38 fehlt). 
+                    Geduld ist eine Soldatentugend! Wir melden uns, wenn die allerletzte Genehmigung eingeholt wurde.
+                </p>
+            </div>
+
+            <div class="flex flex-wrap justify-center gap-x-6 sm:gap-x-8 gap-y-2 text-gray-800 font-medium">
+                <div class="info-item"><strong>Version:</strong> 2.0.0 (Build 14)</div>
+                <div class="info-item"><strong>Größe:</strong> Leichter als ein EPA</div>
+                <div class="info-item"><strong>Android:</strong> 5.0+</div>
+                <div class="info-item"><strong>Lizenz:</strong> Open Source</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Support -->
+    <section class="support py-20 md:py-24 bg-gray-900">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h2 class="text-3xl font-extrabold text-white mb-4">Moral stärken</h2>
+            <p class="text-lg text-gray-400 mb-8 max-w-lg mx-auto">
+                Die App ist kostenlos (wie die Luft in der Kaserne). Gib dem Entwickler einen aus, damit er weitermacht.
+            </p>
+            <div class="flex justify-center gap-4 flex-wrap">
+                <a href="https://www.buymeacoffee.com/gtclouder" class="inline-flex items-center justify-center gap-2 bg-yellow-300 text-black font-bold py-3 px-6 rounded-lg shadow-lg transform transition-transform hover:scale-105" target="_blank">
+                    ☕ Spendier nen Kaffee (oder Bier)
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer py-16 bg-black text-gray-400">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-12">
+                <!-- Footer Section 1: About -->
+                <div class="footer-section md:col-span-1">
+                    <div class="flex items-center gap-2 mb-4">
+                         <!-- 
+                             VERSUCH 1: Lokales Bild (logo.jpg)
+                             VERSUCH 2 (Fallback): Offizielles Bundeswehr-Kreuz von Wikimedia (kein selbstgebautes SVG)
+                        -->
+                        <img src="logo.jpg" 
+                             alt="BWDienstzeitrechner Logo" 
+                             class="h-8 w-8 rounded shadow-sm border border-gray-600/50 object-cover bg-gray-800"
+                             onerror="this.onerror=null; this.src='https://upload.wikimedia.org/wikipedia/commons/thumb/5/5c/Iron_Cross.svg/1024px-Iron_Cross.svg.png';">
+                        
+                        <h3 class="text-xl font-bold text-white">BWDienstzeitrechner</h3>
+                    </div>
+                    <p class="text-sm">Von Soldaten für Soldaten. (Und Ehemalige, die es vermissen... warum auch immer.)</p>
+                    <p class="text-xs mt-2">Version 2.0.0 (Flutter-Neuauflage)</p>
+                </div>
+                <!-- Footer Section 2: Links -->
+                <div class="footer-section">
+                    <h4 class="text-lg font-semibold text-white mb-4">Verbindungen</h4>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="https://gtclouder.github.io/BWDienstzeitrechner" target="_blank" class="hover:text-accent transition-colors">Webseite</a></li>
+                        <li><a href="https://play.google.com/store/apps/details?id=de.bundeswehr.dienstzeitrechner" target="_blank" class="hover:text-accent transition-colors">Google Play</a></li>
+                    </ul>
+                </div>
+                <!-- Footer Section 3: Legal -->
+                <div class="footer-section">
+                    <h4 class="text-lg font-semibold text-white mb-4">Dienstvorschriften</h4>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="#impressum" class="hover:text-accent transition-colors">Impressum</a></li>
+                        <li><a href="#datenschutz" class="hover:text-accent transition-colors">Datenschutz</a></li>
+                    </ul>
+                </div>
+                <!-- Footer Section 4: Developer -->
+                <div class="footer-section">
+                    <h4 class="text-lg font-semibold text-white mb-4">Zuständigkeit</h4>
+                    <p class="text-sm">Verbrochen von <span class="text-accent">GTClouder</span></p>
+                    <p class="text-sm">Mit moralischer Unterstützung der Community</p>
+                </div>
+            </div>
+            
+            <!-- HINWEIS: HIER MÜSSEN IMPRESSUM & DATENSCHUTZ EINGEFÜGT WERDEN -->
+            <!-- Ich füge hier Platzhalter ein, die du ersetzen musst -->
+            <div id="impressum" class="border-t border-gray-800 pt-8 mt-8 text-sm">
+                <h3 class="text-xl font-bold text-white mb-4">Impressum</h3>
+                <p><strong>Stefan Trageser</strong></p>
+                <p>[DEINE STRASSE UND HAUSNUMMER]</p>
+                <p>[DEINE PLZ UND STADT]</p>
+                <p><strong>Meldeempfänger:</strong></p>
+                <p>E-Mail: <a href="mailto:g.t.clouder@gmail.com" class="text-accent hover:underline">g.t.clouder@gmail.com</a></p>
+                <p class="mt-4"><i>(Hinweis: Hier echte Daten eintragen, sonst gibts Ärger mit dem Feldjäger/Anwalt.)</i></p>
+            </div>
+
+            <div id="datenschutz" class="border-t border-gray-800 pt-8 mt-8 text-sm">
+                <h3 class="text-xl font-bold text-white mb-4">Datenschutz (VS-NfD)</h3>
+                <p>Diese Website sammelt nix. Die App "BWDienstzeitrechner" speichert alle Daten ausschließlich lokal auf deinem Endgerät. Für die KI-Sachen (Gemini) geht nur der Text raus, den du eingibst. Keine Namen, keine PKs.</p>
+                <p class="mt-4"><a href="datenschutz.html" class="text-accent hover:underline">Vollständige Datenschutzerklärung</a></p>
+            </div>
+            
+            
+            <div class="footer-bottom border-t border-gray-800 pt-8 mt-12 text-center text-sm">
+                <p>&copy; 2025 BWDienstzeitrechner. Alle Rechte vorbehalten.</p>
+                <p class="text-xs text-gray-500 mt-2">
+                    Diese App ist kein offizielles Produkt der Bundeswehr. Beschwerden bitte an das Salzamt.
+                </p>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>
